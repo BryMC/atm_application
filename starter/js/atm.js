@@ -1,3 +1,36 @@
+$(document).ready(function(){
+$('input #deposit').on("click", depositMoney)
+$('input #withdrawal').on("click", depositMoney)
+}
+var deposit = 0;
+var withdrawal = 0;
+var money = $('input').val();
+var balance = 0;
+
+function depositMoney(event){
+  event.preventDefault()
+  if(money > 0){
+      balance = balance + money;
+  }
+  console.log(balance);
+}
+
+function withdrawMoney(event){
+  event.preventDefault()
+  if(money<balance){
+    balance = balance - money;
+  }
+  console.log(balance)
+}
+
+function colorBalance() {
+  if(balance < 500){
+    $('input').css("color", "blue");
+  }
+  if(500 < balance < 1000){
+    $('input').css("color", yellow);
+  }
+}
 //Begin with the document ready function
 
     //Checking account deposit function
